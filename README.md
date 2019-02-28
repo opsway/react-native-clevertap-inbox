@@ -3,11 +3,11 @@
 
 ## Getting started
 
-`$ npm install react-native-clever-tap-inbox --save`
+`$ npm install react-native-clevertap-inbox --save`
 
 ### Mostly automatic installation
 
-`$ react-native link react-native-clever-tap-inbox`
+`$ react-native link react-native-clevertap-inbox`
 
 ### Manual installation
 
@@ -22,7 +22,7 @@
 #### Android
 
 1. Open up `android/app/src/main/java/[...]/MainActivity.java`
-  - Add `import com.opsway.RNCleverTapInboxPackage;` to the imports at the top of the file
+  - Add `import com.opsway.react.RNCleverTapInboxPackage;` to the imports at the top of the file
   - Add `new RNCleverTapInboxPackage()` to the list returned by the `getPackages()` method
 2. Append the following lines to `android/settings.gradle`:
   	```
