@@ -1,6 +1,6 @@
 {
   "name": "react-native-clevertap-inbox",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "repository": {
@@ -18,7 +18,7 @@
     "react-native", "clevertap"
   ],
   "author": "Anton Baldin <baldinant@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "homepage": "https://github.com/opsway/react-native-clevertap-inbox#readme",
   "bugs": {
     "url": "https://github.com/opsway/react-native-clevertap-inbox/issues"
