@@ -1,4 +1,4 @@
-package com.opsway.RNCleverTapInbox;
+package com.opsway.react;
 
 import android.util.Log;
 

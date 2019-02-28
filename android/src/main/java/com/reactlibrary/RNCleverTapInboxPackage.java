@@ -1,4 +1,4 @@
-package com.opsway.RNCleverTapInbox;
+package com.opsway.react;
 
 import java.util.Arrays;
 import java.util.Collections;
