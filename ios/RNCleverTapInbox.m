@@ -104,7 +104,7 @@ RCT_EXPORT_METHOD(getUnreadInboxMessages:(RCTPromiseResolveBlock)resolve
 
 //Mark all Unread messages as Read
 
-RCT_EXPORT_METHOD(markReadAllUnreadInboxMessage:(RCTPromiseResolveBlock)resolve
+RCT_EXPORT_METHOD(markReadAllUnreadInboxMessages:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject)
 {
   @try {
