@@ -1,0 +1,29 @@
+{
+  "name": "react-native-clevertap-inbox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/opsway/react-native-clevertap-inbox.git"
+  },
+  "_npmUser": {
+    "email": "baldinant@gmail.com",
+    "name": "Anton Baldin"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-native", "clevertap"
+  ],
+  "author": "Anton Baldin <baldinant@gmail.com>",
+  "license": "ISC",
+  "homepage": "https://github.com/opsway/react-native-clevertap-inbox#readme",
+  "bugs": {
+    "url": "https://github.com/opsway/react-native-clevertap-inbox/issues"
+  },
+  "peerDependencies": {
+    "react-native": "^0.41.2"
+  }
+}
