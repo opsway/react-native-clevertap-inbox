@@ -1,3 +1,5 @@
+[![](https://img.shields.io/npm/v/react-native-clevertap-inbox.svg)](https://www.npmjs.com/package/react-native-clevertap-inbox)
+[![](https://img.shields.io/npm/dm/react-native-clevertap-inbox.svg)](https://www.npmjs.com/package/react-native-clevertap-inbox)
 
 # react-native-clever-tap-inbox
 
