@@ -38,6 +38,54 @@
 ```javascript
 import RNCleverTapInbox from 'react-native-clevertap-inbox';
 
-// TODO: What to do with the module?
-RNCleverTapInbox;
+//Initialize App Inbox
+
+RNCleverTapInbox.initializeInbox();
+
+//Get Inbox Message Count
+
+RNCleverTapInbox.getInboxMessageCount().then(count => {
+  console.log('All messages count: ', count);
+});
+
+//Get Inbox Unread Count
+
+RNCleverTapInbox.getInboxMessageUnreadCount().then(count => {
+  console.log('Unread messages count: ', count);
+});
+
+//Get All messages
+
+RNCleverTapInbox.getAllInboxMessages().then((response: string) => {
+  const messages = JSON.parse(response);
+  
+  console.log('All messages: ', messages);
+});
+
+//Get only Unread messages
+
+RNCleverTapInbox.getUnreadInboxMessages().then((response: string) => {
+  const messages = JSON.parse(response);
+  
+  console.log('All unread messages: ', messages);
+});
+
+//Mark all Unread messages as Read
+
+RNCleverTapInbox.markReadAllUnreadInboxMessages().then((success: boolean) => {
+  success && console.log(`All unread messages marked as read!`);
+});
+
+//Mark Message as Read
+
+RNCleverTapInbox.markReadInboxMessage(messageId: string).then((success: boolean) => {
+  success && console.log(`Message with id ${messageId} marked as read!`);
+});
+
+//Delete message from the Inbox
+
+RNCleverTapInbox.deleteInboxMessage(messageId: string).then((success: boolean) => {
+  success && console.log(`Message with id ${messageId} deleted!`);
+});
+
 ```

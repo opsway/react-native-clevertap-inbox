@@ -1,7 +1,5 @@
 package com.opsway.react;
 
-import android.util.Log;
-
 import com.clevertap.android.sdk.CTInboxMessage;
 import com.clevertap.android.sdk.CleverTapAPI;
 import com.facebook.react.bridge.Promise;
@@ -17,7 +15,7 @@ public class RNCleverTapInboxModule extends ReactContextBaseJavaModule {
 	private final ReactApplicationContext reactContext;
 	private CleverTapAPI cleverTapDefaultInstance;
 
-	CleverTapInboxModule(ReactApplicationContext reactContext) {
+	RNCleverTapInboxModule(ReactApplicationContext reactContext) {
 		super(reactContext);
 		this.reactContext = reactContext;
 		cleverTapDefaultInstance = CleverTapAPI.getDefaultInstance(reactContext.getApplicationContext());
@@ -93,27 +91,11 @@ public class RNCleverTapInboxModule extends ReactContextBaseJavaModule {
 		return cleverTapDefaultInstance.getInboxMessageForId(messageId);
 	}
 
-	//Delete message from the Inbox. Message id should be a String
-
-	@SuppressWarnings({"unused"})
-	@ReactMethod
-	public void deleteInboxMessage(CTInboxMessage message) {
-		cleverTapDefaultInstance.deleteInboxMessage(message);
-	}
-
-	//Mark Message as Read
-
-	@SuppressWarnings({"unused"})
-	@ReactMethod
-	public void markReadInboxMessage(CTInboxMessage message) {
-		cleverTapDefaultInstance.markReadInboxMessage(message);
-	}
-
 	//Mark all Unread messages as Read
 
 	@SuppressWarnings({"unused"})
 	@ReactMethod
-	public void markReadAllUnreadInboxMessage(Promise promise) {
+	public void markReadAllUnreadInboxMessages(Promise promise) {
 		try {
 			ArrayList<CTInboxMessage> messages = cleverTapDefaultInstance.getUnreadInboxMessages();
 			for (CTInboxMessage message: messages) {
