@@ -3,6 +3,12 @@
 
 # react-native-clevertap-inbox
 
+For proper work on iOS you have to install CleverTap-iOS-SDK via Cocoapods.
+
+## Requirements
+
+Follow the [CleverTap iOS Quickstart guide](https://developer.clevertap.com/docs/ios-quickstart-guide#section-option-a-install-using-cocoapods-recommended-) to install CleverTap-iOS-SDK via Cocoapods.
+
 ## Getting started
 
 `$ npm install react-native-clevertap-inbox --save`

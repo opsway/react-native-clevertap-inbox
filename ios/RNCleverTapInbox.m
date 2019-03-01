@@ -2,11 +2,11 @@
 //  CleverTapInbox.m
 //
 //  Created by Anton Baldin on 2/28/19.
-//  Copyright © OpsWay. All rights reserved.
+//  Copyright © Anton Baldin. All rights reserved.
 //
 
 #import "RNCleverTapInbox.h"
-#import <CleverTap-iOS-SDK/CleverTap+Inbox.h>
+#import <CleverTapSDK/CleverTap+Inbox.h>
 
 @implementation RNCleverTapInbox
 

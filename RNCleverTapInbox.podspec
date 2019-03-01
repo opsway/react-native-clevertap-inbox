@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/opsway/react-native-clevertap-inbox.git', :tag => s.version }
   s.source_files  = 'ios/**/*.{h,m}'
 
-  # s.dependency 'React'
+  s.dependency 'React'
   s.dependency 'CleverTap-iOS-SDK', '>= 3.4.0'
 
 end
