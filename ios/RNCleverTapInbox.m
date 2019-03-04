@@ -7,7 +7,6 @@
 
 #import "RNCleverTapInbox.h"
 #import <CleverTapSDK/CleverTap+Inbox.h>
-#import <React/RCTPushNotificationManager>
 
 @implementation RNCleverTapInbox
 
