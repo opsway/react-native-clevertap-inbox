@@ -1,5 +1,7 @@
 package com.opsway.react;
 
+import android.content.Context;
+
 import com.clevertap.android.sdk.CTInboxMessage;
 import com.clevertap.android.sdk.CleverTapAPI;
 import com.facebook.react.bridge.Promise;
@@ -10,15 +12,19 @@ import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
+import me.leolin.shortcutbadger.ShortcutBadger;
+
 public class RNCleverTapInboxModule extends ReactContextBaseJavaModule {
 
 	private final ReactApplicationContext reactContext;
+	private final Context context;
 	private CleverTapAPI cleverTapDefaultInstance;
 
 	RNCleverTapInboxModule(ReactApplicationContext reactContext) {
 		super(reactContext);
 		this.reactContext = reactContext;
-		cleverTapDefaultInstance = CleverTapAPI.getDefaultInstance(reactContext.getApplicationContext());
+		this.context = reactContext.getApplicationContext();
+		cleverTapDefaultInstance = CleverTapAPI.getDefaultInstance(this.context);
 	}
 
 	//Initialize App Inbox
@@ -49,6 +55,7 @@ public class RNCleverTapInboxModule extends ReactContextBaseJavaModule {
 	public void getInboxMessageUnreadCount(Promise promise) {
 		try {
 			int count = cleverTapDefaultInstance.getInboxMessageUnreadCount();
+			ShortcutBadger.applyCount(this.context, count);
 			promise.resolve(count);
 		} catch (Throwable e) {
 			promise.reject(e);
@@ -101,6 +108,7 @@ public class RNCleverTapInboxModule extends ReactContextBaseJavaModule {
 			for (CTInboxMessage message: messages) {
 				cleverTapDefaultInstance.markReadInboxMessage(message);
 			}
+			ShortcutBadger.removeCount(this.context);
 			promise.resolve(true);
 		} catch (Throwable e) {
 			promise.reject(e);

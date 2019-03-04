@@ -3,7 +3,9 @@
 
 # react-native-clevertap-inbox
 
-For proper work on iOS you have to install CleverTap-iOS-SDK via Cocoapods.
+We support app badge with unread notifications count for iOS, and most of the Android devices.  
+
+IMPORTANT! For proper work on iOS you have to install CleverTap-iOS-SDK via Cocoapods.
 
 ## Requirements
 

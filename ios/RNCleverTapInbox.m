@@ -7,6 +7,7 @@
 
 #import "RNCleverTapInbox.h"
 #import <CleverTapSDK/CleverTap+Inbox.h>
+#import <React/RCTPushNotificationManager>
 
 @implementation RNCleverTapInbox
 
@@ -22,6 +23,7 @@ RCT_EXPORT_METHOD(initializeInbox)
         int messageCount = (int)[[CleverTap sharedInstance] getInboxMessageCount];
         int unreadCount = (int)[[CleverTap sharedInstance] getInboxMessageUnreadCount];
         NSLog(@"Inbox Messages: %d/%d", messageCount, unreadCount);
+        [UIApplication sharedApplication].applicationIconBadgeNumber = unreadCount;
       }];
     });
   }
@@ -56,6 +58,7 @@ RCT_EXPORT_METHOD(getInboxMessageUnreadCount:(RCTPromiseResolveBlock)resolve
     dispatch_async(dispatch_get_main_queue(), ^{
       NSUInteger count = [[CleverTap sharedInstance] getInboxMessageUnreadCount];
 
+      [UIApplication sharedApplication].applicationIconBadgeNumber = count;
       resolve(@(count));
     });
   }
@@ -114,6 +117,7 @@ RCT_EXPORT_METHOD(markReadAllUnreadInboxMessages:(RCTPromiseResolveBlock)resolve
       for (id message in messages) {
         [[CleverTap sharedInstance] markReadInboxMessage:message];
       }
+      [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 
       resolve(nil);
     });
