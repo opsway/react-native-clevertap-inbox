@@ -10,6 +10,26 @@
 
 @implementation RNCleverTapInbox
 
+- (NSString *)getJsonFromArray:(NSArray<CleverTapInboxMessage *> * _Nonnull)messages {
+    NSMutableArray *temp = [NSMutableArray new];
+
+    for (CleverTapInboxMessage *message in messages) {
+        [temp addObject:message.json];
+    }
+    NSArray *validMessages = temp;
+
+    if ([NSJSONSerialization isValidJSONObject:validMessages]) {
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:validMessages options:NSJSONWritingPrettyPrinted error:nil];
+        NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+
+        return jsonString;
+    } else {
+        NSLog(@"Serialization error!");
+    }
+
+    return nil;
+}
+
 RCT_EXPORT_MODULE();
 
 //Initialize App Inbox
@@ -74,10 +94,13 @@ RCT_EXPORT_METHOD(getAllInboxMessages:(RCTPromiseResolveBlock)resolve
   @try {
     dispatch_async(dispatch_get_main_queue(), ^{
       NSArray<CleverTapInboxMessage *> * _Nonnull messages = [[CleverTap sharedInstance] getAllInboxMessages];
-      NSData *jsonData = [NSJSONSerialization dataWithJSONObject:messages options:NSJSONWritingPrettyPrinted error:nil];
-      NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+      NSString *jsonString = [self getJsonFromArray:messages];
 
-      resolve(jsonString);
+      if (jsonString != nil) {
+          resolve(jsonString);
+      } else {
+          reject(@"10", @"Illegal messages format", nil);
+      }
     });
   }
   @catch (NSException *exception) {
@@ -93,10 +116,13 @@ RCT_EXPORT_METHOD(getUnreadInboxMessages:(RCTPromiseResolveBlock)resolve
   @try {
     dispatch_async(dispatch_get_main_queue(), ^{
       NSArray<CleverTapInboxMessage *> * _Nonnull messages = [[CleverTap sharedInstance] getUnreadInboxMessages];
-      NSData *jsonData = [NSJSONSerialization dataWithJSONObject:messages options:NSJSONWritingPrettyPrinted error:nil];
-      NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+      NSString *jsonString = [self getJsonFromArray:messages];
 
-      resolve(jsonString);
+      if (jsonString != nil) {
+          resolve(jsonString);
+      } else {
+          reject(@"10", @"Illegal messages format", nil);
+      }
     });
   }
   @catch (NSException *exception) {
