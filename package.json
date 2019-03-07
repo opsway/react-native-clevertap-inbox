@@ -1,6 +1,6 @@
 {
   "name": "react-native-clevertap-inbox",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "React Native wrapper for the Custom App Inbox feature of the CleverTap SDK",
   "main": "index.js",
   "repository": {
