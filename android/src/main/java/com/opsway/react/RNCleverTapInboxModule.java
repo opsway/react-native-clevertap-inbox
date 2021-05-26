@@ -2,7 +2,7 @@ package com.opsway.react;
 
 import android.content.Context;
 
-import com.clevertap.android.sdk.CTInboxMessage;
+import com.clevertap.android.sdk.inbox.CTInboxMessage;
 import com.clevertap.android.sdk.CleverTapAPI;
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -18,7 +18,7 @@ public class RNCleverTapInboxModule extends ReactContextBaseJavaModule {
 
 	private final ReactApplicationContext reactContext;
 	private final Context context;
-	private CleverTapAPI cleverTapDefaultInstance;
+	private final CleverTapAPI cleverTapDefaultInstance;
 
 	RNCleverTapInboxModule(ReactApplicationContext reactContext) {
 		super(reactContext);
